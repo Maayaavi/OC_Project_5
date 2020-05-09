@@ -1,16 +1,22 @@
 # PyFoodSubs
-
 On veut bien changer nos habitudes d'alimentation mais ne savons pas bien toujours par quoi commencer.<br>
 Remplacer le Nutella par une pâte aux noisettes, oui, mais laquelle ? Et dans quel magasin l'acheter ?<br>
 Alors voici un programme qui interagit avec la base de donnée d'Open Food Facts pour en récupérer les aliments, les comparer et proposer à l'utilisateur un substitut plus sain à l'aliment qui lui fait envie.
 
-### Descrption du programme
+### Description du programme
 Le programme permet à un l'utilisateur de fournir un aliment de substitution plus sain qu'il a sélectionné.<br>
 Ce dernier s'appuie sur les données de la base OpenFoodFacts.
 
+
+### Lancement de l'application
+Le lanceement de l'application s'effectue via un terminal de commande, il suffit simplement d'exécuter app_cli.py.<br>
+```
+python3 app_cli.py
+```
+
 ### Example de parcours basic de l'utilisateur
 1. L'utilisateur est sur le terminal. Ce dernier lui affiche les choix suivants :
-    ```console
+    ```
     ##############################
     #  Bienvenue sur PyFoodSubs  #
     ##############################
@@ -24,7 +30,7 @@ Ce dernier s'appuie sur les données de la base OpenFoodFacts.
     ```
     L'utilisateur interagit avec le programme via le terminal.<br>Sélectionne le choix numéro 1 et appuie sur la touché "Entrée".
     
-    ```console
+    ```
     ##############################
     #  Bienvenue sur PyFoodSubs  #
     ##############################
@@ -39,7 +45,7 @@ Ce dernier s'appuie sur les données de la base OpenFoodFacts.
 
 2. Le terminal affiche les choix suivants :<br>
         
-    ```console
+    ```
     Sélectionnez la catégorie d'aliment.
     1. Catégorie 1
     2. Catégorie 2
@@ -56,38 +62,14 @@ Ce dernier s'appuie sur les données de la base OpenFoodFacts.
     Plusieurs propositions de catégories associées à un chiffre sont proposé. <br>
     L'utilisateur entre le chiffre correspondant à la catégorie.<br> 
     
-    ```console
+    ```
         ...
    
     Votre choix? 2
     ```
    
-3. Le terminal affiche alors la liste de suivant :<br>
-    ```console
-    Vous avez choisie la catégorie d'aliment suivant : Catégorie 2
-    Précisez maintenant la catégorie d'aliment parmis cette liste.
-    1. Sous-catégorie 1
-    2. Sous-catégorie 2
-    3. Sous-catégorie 3
-    4. Sous-catégorie 4
-    5. Sous-catégorie 5
-    
-    0. Retour
-    00. Quitter
-   
-    Votre choix?
+3. Le terminal propose enfin les choix suivant :
     ```
-   
-    Plusieurs propositions de catégories associées à un chiffre sont proposé. <br>
-    L'utilisateur entre le chiffre correspondant à la catégorie.<br> 
-    ```console
-        ...
-   
-    Votre choix? 4
-    ```
-   
-4. Le terminal propose enfin les choix suivant :
-    ```console
     Vous avez choisie la catégorie d'aliment suivant : Sous-catégorie 4
     Parmis la liste de la : Catégorie 2
     Précisez maintenant l'aliment parmis cette liste.
@@ -105,14 +87,14 @@ Ce dernier s'appuie sur les données de la base OpenFoodFacts.
 
     Affiche les aliments subsituable de la liste de sous-catérogie choisie.<br>
     L'utilisateur fait son choix parmis les aliments proposé.
-    ```console
+    ```
         ...
    
     Votre choix? 4
     ```
     
-5. Le terminal affiche l'écran de résultat suivant : <br>
-    ```console
+4. Le terminal affiche l'écran de résultat suivant : <br>
+    ```
     L'aliment qui vous est substitué est:
         Aliment
    
@@ -137,7 +119,7 @@ Ce dernier s'appuie sur les données de la base OpenFoodFacts.
 
 ##### Spécificités:
    - Si l'utilisateur entre un caractère qui n'est pas un chiffre, le programme lui répéte la question,
-   - La recherche est effectué sur une base de donnée MySql.
+   - La recherche est effectué sur une base de donnée MySql en locale.
 
 ---
 
