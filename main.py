@@ -1,22 +1,38 @@
-from apps.controller.api_interaction import OFFInteractions
-from apps.controller.application_cli import Application
-from apps.model.category import CategoryDatatable
+#! /usr/bin/env python3
+# coding: utf-8
+
+import argparse
+
+from apps.controller.application_cli import ApplicationCLI
+from apps.controller.dbcreation import CreateDatatable
+from apps.controller.dbupdate import UpdateDatatable
+
+
+def parse_arguments():
+    """ This function creates the needed arguments to create and updates
+    the database manually """
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--database', help="""Action on Database. Type
+    "-d create" to create and feed the database. Type "-d update" to force the update of
+    the database""")
+    return parser.parse_args()
 
 
 def main():
     """ Main function """
 
-    # startt = OFFInteractions()
-    # start.get_product_info()
+    args = parse_arguments()
 
-    app = Application()
-    app.main()
+    if args.database == 'create':
+        database = CreateDatatable()
+        database.prepare()
+    elif args.database == 'update':
+        database = UpdateDatatable()
+        database.update_database(True)
 
-    # start = CategoryDatatable()
-    # start.create_dt()
-    # start.inject_categories(OFFInteractions().category_list)
-    # start.get_categories_name()
-    # start.get_categories_with_id()
+    application = ApplicationCLI()
+    application.main()
 
 
 if __name__ == "__main__":

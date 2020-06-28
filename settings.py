@@ -12,4 +12,3 @@ HOST = "localhost"
 USERNAME = "user"
 PASSWORD = "user_password"
 DATABASE = "pyfoodsub"
-

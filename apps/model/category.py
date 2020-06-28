@@ -3,10 +3,11 @@
 from .dbconnexion import SQLconnexion
 
 
-class CategoryDatatable:
+class Category:
+    #categoryDAO
     """ This class groups all the necessary SQL request linked to the Category table """
 
-    def create_dt(self):
+    def create_category_dt(self):
         """ This method creates the category table """
         with SQLconnexion() as connexion:
             with connexion.cursor() as cursor:

@@ -1,17 +1,21 @@
 import sys
 import os
 
+from apps.view_cli.consoleapplicationview import ConsoleApplicationView
+from apps.model.category import Category
+
 
 class Menu:
     """Class for print the main menu"""
 
     def __init__(self):
-        pass
+        self.interface = ConsoleApplicationView()
+        self.db_category = Category()
 
     def home_menu(self):
         """Method for print the main selection menu"""
         self.clean_screen()
-        print("##############################")
+        print("\n##############################")
         print("#  Bienvenue sur PyFoodSubs  #")
         print("##############################")
         print("")
@@ -25,14 +29,15 @@ class Menu:
         """Method for print the food category selection menu"""
         self.clean_screen()
 
-        print("Sélectionnez la catégorie d'aliment.")
-        print("")
-        for category in category_tuple:
-            print("{}. {}".format(category[0], category[1]))
-        print("")
-        print("0. Retour")
-        print("00. Quitter")
-        print("")
+        self.cat_id_selected = 0 #to be sure to ask category each time
+        self.cat_information = self.db_category.get_categories_with_id()
+        self.interface.print_category_selection(self.cat_information)
+        while self.cat_id_selected < 1 or self.cat_id_selected > len(self.cat_information):
+            try:
+                self.cat_id_selected = int(input("\nVotre sélection : "))
+            except:
+                self.interface.print_error_input_not_int()
+        self.interface.print_category_selected(self.cat_information, self.cat_id_selected)
 
     def saved_menu(self):
         """Method for print all saved substituted food """
